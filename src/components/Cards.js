@@ -11,27 +11,13 @@ const Cards = ({ cardsList, deleteCard }) => {
               <img src={c.picture} alt="card-pic" className="activator" />
             </div>
 
-            {/* <div className="card-content"> */}
-            {/* <p>{c.name}</p> */}
-
-            {/* <a href="#!" className="activator blue-text">
-                {c.issuer.toUpperCase()}
-              </a> */}
-
-            {/* <div className="card-action">
-                <a href="#!" className="activator blue-text">
-                  {c.issuer.toUpperCase()}
-                </a>
-              </div> */}
-            {/* </div> */}
-
             {/* Reveal card detail */}
             <div className="card-reveal">
               <span className="card-title blue-text text-lighten-2">
-                {c.name}
+                {c.name.toUpperCase()}
                 <i className="material-icons right">close</i>
               </span>
-              <p>{c.benefit}</p>
+              <p>{c.benefit.toUpperCase()}</p>
               <Link
                 to={"/" + c._id}
                 className="waves-effect waves-light btn blue"

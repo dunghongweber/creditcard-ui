@@ -26,24 +26,67 @@ class CardDetails extends Component {
     let deleteID = this.state.card._id;
     // console.log(typeof deleteID); //testing
 
-    axios.delete("https://dh-react-card.herokuapp.com/delete/" + deleteID);
+    let confirmDelete = window.confirm(
+      "Are you sure you want to delete this card?"
+    );
+
+    if (confirmDelete) {
+      axios.delete("https://dh-react-card.herokuapp.com/delete/" + deleteID);
+    }
   };
+
+  formatDate = (inputDate) => {
+    let newDate = new Date(inputDate);
+    return newDate.toDateString();
+  };
+
   render() {
     const card = this.state.card ? (
-      <div className="carddetails container">
-        <h5 className="center">{this.state.card.name}</h5>
-        <div className="center">by: {this.state.card.issuer}</div>
-        <p>
-          <strong>BENEFITS:</strong> <br /> {this.state.card.benefit}
-        </p>
-        <a
-          href="#!"
-          className="waves-effect waves-light btn red"
-          onClick={this.handleDelete}
-        >
-          <i className="material-icons left">delete</i>
-          Delete
-        </a>
+      <div className="carddetails container card-panel blue lighten-5">
+        <div className="row">
+          {/* card image */}
+          <div className="col s3">
+            <img
+              alt="cardicon"
+              className="card-icon center responsive-img"
+              src={this.state.card.picture}
+            ></img>
+          </div>
+          {/* card issuer and name */}
+          <div className="col s9">
+            <div className="row">
+              <div className="col s8">
+                <h5>{this.state.card.name.toUpperCase()}</h5>
+              </div>
+              <div className="col s4">
+                <a
+                  href="#!"
+                  className="waves-effect waves-light btn red right"
+                  onClick={this.handleDelete}
+                >
+                  <i className="material-icons left">delete</i>
+                  Delete
+                </a>
+              </div>
+            </div>
+            <div className="row">
+              <div>by: {this.state.card.issuer.toUpperCase()}</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <p>
+            <strong>BENEFITS:</strong> <br />{" "}
+            {this.state.card.benefit.toUpperCase()}
+          </p>
+        </div>
+        <div className="row">
+          <p>
+            <strong>Created:</strong> <br />{" "}
+            {this.formatDate(this.state.card.createdAt)}
+          </p>
+        </div>
       </div>
     ) : (
       <div className="center">Error, cannot fetch card data</div>

@@ -48,39 +48,61 @@ class AddCard extends Component {
   render() {
     return (
       <div className="AddCard container">
+        <h4 className="center blue-text text-accent-4">New Card</h4>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="picture">Card Picture URL:</label>
-          <input
-            type="text"
-            id="picture"
-            className="validate"
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="name">Card Name:</label>
-          <input
-            type="text"
-            id="name"
-            className="validate"
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="issuer">Card Issuer:</label>
-          <input
-            type="text"
-            id="issuer"
-            className="validate"
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="benefit">Card Benefit:</label>
-          <input
-            type="text"
-            id="benefit"
-            className="validate"
-            required
-            onChange={this.handleChange}
-          />
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                placeholder="Please provide a url from google image for the picture of the card"
+                type="text"
+                id="picture"
+                className="validate col s6"
+                required
+                onChange={this.handleChange}
+              />
+              <label htmlFor="picture">Card Picture URL:</label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s8">
+              <i class="material-icons prefix">assignment</i>
+              <label htmlFor="name">Card Name:</label>
+              <input
+                type="text"
+                id="name"
+                className="validate"
+                required
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="input-field col s4">
+              <i class="material-icons prefix">account_balance</i>
+              <label htmlFor="issuer">Card Issuer:</label>
+              <input
+                type="text"
+                id="issuer"
+                className="validate"
+                required
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s12">
+              <i class="material-icons prefix">card_giftcard</i>
+              <label htmlFor="benefit">Card Benefit:</label>
+              <input
+                type="text"
+                id="benefit"
+                className="validate"
+                required
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+
           <button
             className="btn waves-effect waves-light blue"
             type="submit"

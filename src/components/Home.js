@@ -21,8 +21,15 @@ class Home extends Component {
     const cardsData = this.state.cards ? (
       <Cards cardsList={this.state.cards}></Cards>
     ) : (
-      <div>
+      // <div>
+      //   <h5 className="center">Loading...</h5>
+      //   <div className="progress">
+      //     <div className="indeterminate"></div>
+      //   </div>
+      // </div>
+      <div className="progress">
         <h1>Loading...</h1>
+        <div className="indeterminate"></div>
       </div>
     );
 
