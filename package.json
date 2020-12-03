@@ -2,7 +2,7 @@
   "name": "creditcard-ui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dunghongweber.github.io/",
+  "homepage": "https://dunghongweber.github.io/creditcard-ui",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
