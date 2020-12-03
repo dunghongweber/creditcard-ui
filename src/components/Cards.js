@@ -33,7 +33,7 @@ const Cards = ({ cardsList, deleteCard }) => {
               </span>
               <p>{c.benefit}</p>
               <Link
-                to={"/" + c._id}
+                to={"/creditcard-ui/" + c._id}
                 className="waves-effect waves-light btn blue"
               >
                 <i className="material-icons right">credit_card</i>
