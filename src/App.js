@@ -11,9 +11,9 @@ function App() {
       <div className="App">
         <NavBar></NavBar>
         <Switch>
-          <Route exact path="/creditcard-ui/" component={Home}></Route>
-          <Route path="/creditcard-ui/add" component={AddCard}></Route>
-          <Route path="/creditcard-ui/:card_id" component={CardDetails}></Route>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/add" component={AddCard}></Route>
+          <Route path="/:card_id" component={CardDetails}></Route>
         </Switch>
       </div>
     </BrowserRouter>
