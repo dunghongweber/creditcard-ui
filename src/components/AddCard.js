@@ -40,10 +40,14 @@ class AddCard extends Component {
       headers: {
         "content-type": "application/x-www-form-urlencoded;charset=utf-8",
       },
-    });
+    }).then((result) => {
+      // console.log(result); //log info for testing
 
-    // e.target.reset();
-    // alert("Card Added");
+      e.target.reset(); //reset all inputs
+      alert("Card Added"); //pop up alert
+
+      this.props.history.push("/"); //redirect to home
+    });
   };
   render() {
     return (

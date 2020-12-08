@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class CardDetails extends Component {
   state = {
@@ -9,19 +10,16 @@ class CardDetails extends Component {
   componentDidMount() {
     let id = this.props.match.params.card_id;
 
-    console.log(id);
+    // console.log(id); //testing id
 
     axios
       .get("https://dh-react-card.herokuapp.com/detail/" + id)
       .then((res) => {
-        console.log(res);
+        // console.log(res); //testing response
         this.setState({ card: res.data, id: id });
       });
-
-    this.setState({
-      //   id: id,
-    });
   }
+
   handleDelete = () => {
     let deleteID = this.state.card._id;
     // console.log(typeof deleteID); //testing
@@ -31,7 +29,11 @@ class CardDetails extends Component {
     );
 
     if (confirmDelete) {
-      axios.delete("https://dh-react-card.herokuapp.com/delete/" + deleteID);
+      axios
+        .delete("https://dh-react-card.herokuapp.com/delete/" + deleteID)
+        .then((result) => {
+          this.props.history.push("/"); //redirect to home
+        });
     }
   };
 
@@ -59,18 +61,27 @@ class CardDetails extends Component {
                 <h5>{this.state.card.name.toUpperCase()}</h5>
               </div>
               <div className="col s4">
+                <Link
+                  to={"/edit/" + this.state.card._id}
+                  className="waves-effect waves-light btn blue right"
+                >
+                  <i className="material-icons">edit</i>
+                </Link>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col s8">
+                <div>by: {this.state.card.issuer.toUpperCase()}</div>
+              </div>
+              <div className="col s4">
                 <a
                   href="#!"
                   className="waves-effect waves-light btn red right"
                   onClick={this.handleDelete}
                 >
-                  <i className="material-icons left">delete</i>
-                  Delete
+                  <i className="material-icons">delete</i>
                 </a>
               </div>
-            </div>
-            <div className="row">
-              <div>by: {this.state.card.issuer.toUpperCase()}</div>
             </div>
           </div>
         </div>

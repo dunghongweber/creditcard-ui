@@ -10,7 +10,7 @@ class Home extends Component {
   };
   componentDidMount() {
     axios.get("https://dh-react-card.herokuapp.com/all-cards").then((res) => {
-      console.log(res);
+      // console.log(res); //testing response
 
       this.setState({
         cards: res.data,

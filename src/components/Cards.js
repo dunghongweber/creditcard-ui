@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Cards = ({ cardsList, deleteCard }) => {
+const Cards = ({ cardsList }) => {
   const cardList = cardsList.map((c) => {
     return (
       <div className="myCard row" key={c._id}>
