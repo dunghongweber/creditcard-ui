@@ -41,12 +41,18 @@ class AddCard extends Component {
         "content-type": "application/x-www-form-urlencoded;charset=utf-8",
       },
     }).then((result) => {
-      // console.log(result); //log info for testing
+      // console.log(result.data); //log info for testing
 
-      e.target.reset(); //reset all inputs
-      alert("Card Added"); //pop up alert
-
-      this.props.history.push("/"); //redirect to home
+      //if server returns no duplicate attempt
+      if (result.data.addCardResult.toUpperCase() === "YES") {
+        alert("Card Added"); //pop up alert
+        e.target.reset(); //reset all inputs
+        this.props.history.push("/"); //redirect to home
+      }
+      //if server returns already existing card
+      else {
+        alert(result.data.addCardResult); //pop up alert
+      }
     });
   };
   render() {
@@ -70,7 +76,7 @@ class AddCard extends Component {
 
           <div className="row">
             <div className="input-field col s8">
-              <i class="material-icons prefix">assignment</i>
+              <i className="material-icons prefix">assignment</i>
               <label htmlFor="name">Card Name:</label>
               <input
                 type="text"
@@ -81,7 +87,7 @@ class AddCard extends Component {
               />
             </div>
             <div className="input-field col s4">
-              <i class="material-icons prefix">account_balance</i>
+              <i className="material-icons prefix">account_balance</i>
               <label htmlFor="issuer">Card Issuer:</label>
               <input
                 type="text"
@@ -95,7 +101,7 @@ class AddCard extends Component {
 
           <div className="row">
             <div className="input-field col s12">
-              <i class="material-icons prefix">card_giftcard</i>
+              <i className="material-icons prefix">card_giftcard</i>
               <label htmlFor="benefit">Card Benefit:</label>
               <input
                 type="text"

@@ -13,5 +13,11 @@ code {
 }
 
 .card-icon {
-  width: 150px;
+  width: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-image {
+    width: 300px;
+  }
 }

@@ -76,7 +76,9 @@ class CardDetails extends Component {
               <div className="col s4">
                 <a
                   href="#!"
-                  className="waves-effect waves-light btn red right"
+                  className="waves-effect waves-light btn red right tooltipped"
+                  data-position="bottom"
+                  data-tooltip="I am a tooltip"
                   onClick={this.handleDelete}
                 >
                   <i className="material-icons">delete</i>

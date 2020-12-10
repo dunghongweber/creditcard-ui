@@ -5,8 +5,11 @@ const NavBar = () => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper indigo darken-1">
-          <a href="/" className="brand-logo center">
+          <a href="/" className="brand-logo center hide-on-small-only">
             Cards Management
+          </a>
+          <a href="/" className="brand-logo center hide-on-med-and-up">
+            Cards
           </a>
           <ul id="nav-mobile" className="right">
             <li>
